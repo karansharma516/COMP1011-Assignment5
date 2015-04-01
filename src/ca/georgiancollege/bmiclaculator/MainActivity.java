@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -36,19 +35,21 @@ public class MainActivity extends Activity {
         this._resultView = (TextView) findViewById(R.id.resultView);
         this._calculate = (Button) findViewById(R.id.calculateButton); 
         this._radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
+		
 	}
 
 	
-	
 	public void clickHandler(View view) {
-	     
-		int rg = this._radioGroup.getCheckedRadioButtonId();
-		    this._selectedButton = (RadioButton) findViewById(rg);
+	     // make sure we handle the click of the calculator button
+		
+		int id = this._radioGroup.getCheckedRadioButtonId();
+		    this._selectedButton = (RadioButton) findViewById(id);
 		    this._select = (String) this._selectedButton.getText();
 		    
 	     if (view.getId() == R.id.calculateButton) {
 
-	  
+	      // get the users values from the widget references
+
 	      this._weight = Float.parseFloat(this._weightEditText.getText().toString());
 	      this._height = Float.parseFloat(this._heightEditText.getText().toString());
 	 
@@ -66,6 +67,8 @@ public class MainActivity extends Activity {
 	    }
 	 
 	    // the formula to calculate the BMI index
+
+	    // check for http://en.wikipedia.org/wiki/Body_mass_index
 	    private float calculateBMI (float weight, float height) {
 
 	    	if(this._select.equals("Imperial")){

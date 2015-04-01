@@ -14,5 +14,7 @@
     <string name="resultText"></string>
     <string name="weightLabel"></string>
     <string name="heightLabel"></string>
+    <string name="SelectionString">Select your units:</string>
+    <string name="Select">Select Units</string>
 
 </resources>
