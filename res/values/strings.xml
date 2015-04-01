@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BMIClaculator</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="ImperialRadio">Imperial</string>
+    <string name="MetricRadio">Metric</string>
+    <string name="WeightLabel">Weight</string>
+    <string name="HeightLabel">Height</string>
+    <string name="CalculateButton">Calculate</string>
+    <string name="PoundLabel">lbs</string>
+    <string name="inchesLabel">inches</string>
+    <string name="resultText"></string>
+    <string name="weightLabel"></string>
+    <string name="heightLabel"></string>
+
+</resources>
