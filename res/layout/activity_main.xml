@@ -126,4 +126,13 @@
         android:onClick="clickHandler"
         android:text="@string/CalculateButton" />
 
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/calculateButton"
+        android:layout_alignLeft="@+id/radioGroup1"
+        android:onClick="resetOnClick"
+        android:text="@string/resetButton" />
+
 </RelativeLayout>

@@ -16,5 +16,6 @@
     <string name="heightLabel"></string>
     <string name="SelectionString">Select your units:</string>
     <string name="Select">Select Units</string>
+    <string name="resetButton">Reset</string>
 
 </resources>

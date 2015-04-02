@@ -23,7 +23,8 @@ public class MainActivity extends Activity {
 	private TextView _resultView;
 	private RadioGroup _radioGroup;
 	private RadioButton _selectedButton;
-	private Button _calculate;	
+	private Button _calculate;
+	private Button _reset;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class MainActivity extends Activity {
         this._resultView = (TextView) findViewById(R.id.resultView);
         this._calculate = (Button) findViewById(R.id.calculateButton); 
         this._radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
-		
+        this._reset = (Button) findViewById(R.id.resetButton);
 	}
 
 	
@@ -65,6 +66,13 @@ public class MainActivity extends Activity {
 	      this._resultView.setText(bmiValue + "-" + bmiInterpretation);
 	     }
 	    }
+	
+	public void resetOnClick(View view) {
+		this._radioGroup.clearCheck();
+		this._resultView.setText("");
+		this._weightEditText.setText("");
+		this._heightEditText.setText("");
+	}
 	 
 	    // the formula to calculate the BMI index
 
