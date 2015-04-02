@@ -1,3 +1,11 @@
+/**
+ * Author: Karan Sharma
+ * File Name: SplashScreen.java
+ * Date: April 2, 2015
+ * App Description: This app gives the user body mass index value and displays the information from 
+ * health department to the user. This app also allow the user to select different units.
+ */
+
 package ca.georgiancollege.bmiclaculator;
 
 import android.app.Activity;

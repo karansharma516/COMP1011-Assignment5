@@ -1,3 +1,12 @@
+/**
+ * Author: Karan Sharma
+ * File Name: MainActivity.java
+ * Date: April 2, 2015
+ * App Description: This app gives the user body mass index value and displays the information from 
+ * health department to the user. This app also allow the user to select different units.
+ */
+
+
 package ca.georgiancollege.bmiclaculator;
 
 import android.app.Activity;
@@ -11,10 +20,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Button;
 import android.view.View;
-import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity {
 
+	// PRIVATE VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	private float _height;
 	private float _weight;
 	private float _bmi;
@@ -40,34 +49,45 @@ public class MainActivity extends Activity {
         this._reset = (Button) findViewById(R.id.resetButton);
 	}
 
-	
+	/**
+	 * This method deal with the click of the calculate button
+	 * @param view
+	 */
 	public void clickHandler(View view) {
-	     // make sure we handle the click of the calculator button
-		
+	     
 		int id = this._radioGroup.getCheckedRadioButtonId();
 		    this._selectedButton = (RadioButton) findViewById(id);
 		    this._select = (String) this._selectedButton.getText();
 		    
 	     if (view.getId() == R.id.calculateButton) {
 
-	      // get the users values from the widget references
+	      // get the users values 
 
 	      this._weight = Float.parseFloat(this._weightEditText.getText().toString());
 	      this._height = Float.parseFloat(this._heightEditText.getText().toString());
 	 
-	      // calculate the bmi value
-
+	      // calculate the bmi value 
 	      float bmiValue = calculateBMI(this._weight, this._height);
 	 
-	      // interpret the meaning of the bmi value
+	      // formatting the bmi result upto 2 decimal place
+	      String b = String.format("%.02f", bmiValue);
+	      
+	      // showing the meaning of the bmi value
 	      String bmiInterpretation = interpretBMI(bmiValue);
 	 
-	      // now set the value in the result text
+	      // set the color of the text
 	      this._resultView.setTextColor(Color.RED);
-	      this._resultView.setText(bmiValue + "-" + bmiInterpretation);
+	      
+	   //  set the value in the result text
+	      this._resultView.setText(b + " - " + bmiInterpretation);
+	    
 	     }
-	    }
+	   }
 	
+	/**
+	 * reset the application to the default state
+	 * @param view
+	 */
 	public void resetOnClick(View view) {
 		this._radioGroup.clearCheck();
 		this._resultView.setText("");
@@ -75,14 +95,18 @@ public class MainActivity extends Activity {
 		this._heightEditText.setText("");
 	}
 	 
-	    // the formula to calculate the BMI index
-
-	    // check for http://en.wikipedia.org/wiki/Body_mass_index
+	  /**
+	   * This method calculate the BMI index
+	   * @param weight of the user
+	   * @param height of the user
+	   * @return
+	   */
 	    private float calculateBMI (float weight, float height) {
-
+           // calculate the bmi if user selects the imperial
 	    	if(this._select.equals("Imperial")){
 	    		this._bmi = ((this._weight * 703) / (this._height * this._height));
 	    	}
+	    	// calculate the bmi if user selects the metric
 	    	else if (this._select.equals("Metric")){
 	    		this._bmi = (this._weight / (this._height * this._height));
 	    	}
@@ -90,8 +114,12 @@ public class MainActivity extends Activity {
 	    }
 
 	 
-	    // interpret what BMI means
-	    private String interpretBMI(float bmiValue) {
+	    /**
+	     * This method interpret meaning of bmi
+	     * @param bmiValue
+	     * @return the String which is meaning of bmi
+	     */
+	   private String interpretBMI(float bmiValue) {
 
 	     if (bmiValue < 16) {
 	      return "Severely underweight";
