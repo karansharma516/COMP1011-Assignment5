@@ -1,6 +1,7 @@
 package ca.georgiancollege.bmiclaculator;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -62,7 +63,7 @@ public class MainActivity extends Activity {
 	      String bmiInterpretation = interpretBMI(bmiValue);
 	 
 	      // now set the value in the result text
-
+	      this._resultView.setTextColor(Color.RED);
 	      this._resultView.setText(bmiValue + "-" + bmiInterpretation);
 	     }
 	    }
