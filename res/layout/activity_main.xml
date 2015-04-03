@@ -136,4 +136,13 @@
         android:onClick="resetOnClick"
         android:text="@string/resetButton" />
 
+    <TextView
+        android:id="@+id/bmiBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/resultView"
+        android:layout_centerVertical="true"
+        android:text="@string/bmiBody"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>

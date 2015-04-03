@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
 	private EditText _weightEditText;
 	private EditText _heightEditText;
 	private TextView _resultView;
+	private TextView _bodyView;
 	private RadioGroup _radioGroup;
 	private RadioButton _selectedButton;
 	private Button _calculate;
@@ -44,6 +45,7 @@ public class MainActivity extends Activity {
 		this._weightEditText = (EditText) findViewById(R.id.weightEditText);
         this._heightEditText = (EditText) findViewById(R.id.heightEditText);
         this._resultView = (TextView) findViewById(R.id.resultView);
+        this._bodyView = (TextView) findViewById(R.id.bmiBody); 
         this._calculate = (Button) findViewById(R.id.calculateButton); 
         this._radioGroup = (RadioGroup) findViewById(R.id.radioGroup1);
         this._reset = (Button) findViewById(R.id.resetButton);
@@ -71,15 +73,17 @@ public class MainActivity extends Activity {
 	 
 	      // formatting the bmi result upto 2 decimal place
 	      String b = String.format("%.02f", bmiValue);
-	      
+	    
 	      // showing the meaning of the bmi value
 	      String bmiInterpretation = interpretBMI(bmiValue);
 	 
 	      // set the color of the text
 	      this._resultView.setTextColor(Color.RED);
+	      this._bodyView.setTextColor(Color.RED);
 	      
 	   //  set the value in the result text
-	      this._resultView.setText(b + " - " + bmiInterpretation);
+	      this._resultView.setText("BMI" + " - " +b);
+	      this._bodyView.setText("BMI Scale" + " - " + bmiInterpretation);
 	    
 	     }
 	   }
@@ -91,6 +95,7 @@ public class MainActivity extends Activity {
 	public void resetOnClick(View view) {
 		this._radioGroup.clearCheck();
 		this._resultView.setText("");
+		this._bodyView.setText("");
 		this._weightEditText.setText("");
 		this._heightEditText.setText("");
 	}
